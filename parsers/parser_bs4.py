@@ -26,7 +26,7 @@ def parse_recipe(url, pages, dish_type):
 		calories = [amount.text for amount in calories_soup]
 		for element in range(len(titles)-1):
 			recipes = {
-						"dishtype": dish_type,	
+						"dishtype": "",
 						"title": "",
 						"description": "",
 						"ingredients": "",
@@ -40,7 +40,7 @@ def parse_recipe(url, pages, dish_type):
 			recipes["imgs_url"] = imgs_url[element]
 			recipes["calories"] = calories[element]
 			recipes_list.append(recipes)
-	return recipes_list
+	return recipes_list, response.status_code
 
 
 def main():
@@ -48,9 +48,9 @@ def main():
 	vegetaian_url = "https://www.iamcook.ru/event/everyday/everyday-vegetarian"
 	nonglyuten_url = 'https://www.iamcook.ru/event/baking/gluten-free-baking'
 	meat_url = "https://www.iamcook.ru/showsubsection/myasnie_bluda"
-	veg_list = parse_recipe(vegetaian_url, pages, dish_type="Вегетарианская")
-	nonglyuten_list = parse_recipe(nonglyuten_url, pages, dish_type="Безглютеновая")
-	meat_list = parse_recipe(meat_url, pages, dish_type="Мясные блюда")
+	veg_list, veg_response = parse_recipe(vegetaian_url, pages, dish_type="Вегетарианская")
+	nonglyuten_list, nonglut_response = parse_recipe(nonglyuten_url, pages, dish_type="Безглютеновая")
+	meat_list, meat_response = parse_recipe(meat_url, pages, dish_type="Мясные блюда")
 	recipes_list = veg_list + nonglyuten_list + meat_list
 	with open('recipes_bs4.json', 'w') as fp:
 		json.dump(
