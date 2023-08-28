@@ -66,7 +66,7 @@ def main():
                               dish_type="Мясные блюда")
     recipes_list = veg_recipes + nonglyuten_list + meat_list
 
-    with open('recipes_selenium.json', 'a') as fp:
+    with open('recipes_selenium.json', 'w') as fp:
         json.dump(
             recipes_list,
             fp,

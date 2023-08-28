@@ -52,13 +52,13 @@ def main():
 	nonglyuten_list = parse_recipe(nonglyuten_url, pages, dish_type="Безглютеновая")
 	meat_list = parse_recipe(meat_url, pages, dish_type="Мясные блюда")
 	recipes_list = veg_list + nonglyuten_list + meat_list
-	with open('recipes_bs4.json', 'a') as fp:
+	with open('recipes_bs4.json', 'w') as fp:
 		json.dump(
-            recipes_list,
-            fp,
+			recipes_list,
+			fp,
 			ensure_ascii=False,
-            indent=4
-        )
+			indent=4
+		)
 
 
 if __name__ == "__main__":

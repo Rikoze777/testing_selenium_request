@@ -31,9 +31,14 @@ pip install -r requirements.txt
 cd parsers && python3 parser_bs4.py
 ```
 
+### 5. Запуск парсера beautifulsoup4:
+```
+cd parsers && python3 parser_selenium.py
+```
+
 ## Результат:
 
-После запуска парсера на `beautifulsoup4` мы должны получить файл `recipes_bs4.json` с рецептами следующего вида:
+После запуска парсера на `beautifulsoup4` или `selenium` мы должны получить  json файл с рецептами следующего вида:
 ```json
     {
         "dishtype": "Вегетарианская",
