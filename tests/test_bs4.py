@@ -10,7 +10,7 @@ def test_status():
     print("status code is 200")
 
 
-def check_json():
+def test_json():
     print("Проверка ключей")
     with open('recipes_bs4.json', 'r') as file:
         recipes = json.loads(file)
@@ -21,7 +21,7 @@ def check_json():
     assert check_keys == keys
 
 
-def check_recipes():
+def test_recipes():
     print("Проверка наполненности json файла")
     with open('recipes_bs4.json', 'r') as file:
         recipes = json.loads(file)
